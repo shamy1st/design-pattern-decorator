@@ -3,6 +3,51 @@
 **Decorator** add additional behavior to an object.
 ![](https://github.com/shamy1st/design-pattern-decorator-java/blob/main/decorator-uml.png)
 ### Problem: 
+You have **CLoudStream** class that store data to a cloud service and **EncryptedCloudStream** class that encrypt data before storing it and **CompressedCloudStream** class that compress data before storing it, now you want to (1. encrypt, 2. compress, 3. store).
+
+The issue with this implementation that now you want to create another class **CompressedAndEncryptedCloudStream** extends **CloudStream** and implement the same functionality again in the required order!
+
+    public class Main {
+        public static void main(String[] args) {
+            Stream stream = new EncryptedCloudStream();
+            stream.write("some data");
+        }
+    }
+
+    public interface Stream {
+        void write(String data);
+    }
+
+    public class CloudStream implements Stream {
+        @Override
+        public void write(String data) {
+            System.out.println("Storing " + data);
+        }
+    }
+
+    public class EncryptedCloudStream extends CloudStream {
+        @Override
+        public void write(String data) {
+            String encryptedData = encrypt(data);
+            super.write(encryptedData);
+        }
+        
+        private String encrypt(String data) {
+            return "encrypted-(" + data + ")";
+        }
+    }
+
+    public class CompressedCloudStream extends CloudStream {
+        @Override
+        public void write(String data) {
+            String compressedData = compress(data);
+            super.write(compressedData);
+        }
+        
+        private String compress(String data) {
+            return "compressed-(" + data + ")";
+        }
+    }
 
 ### Solution:
 ![](https://github.com/shamy1st/design-pattern-decorator-java/blob/main/decorator-solution-uml.png)
