@@ -1,6 +1,6 @@
 # Decorator Design Pattern (Java Implementation)
 
-**Decorator** design pattern . ([wiki]())
+**Decorator** add additional behavior to an object.
 ![](https://github.com/shamy1st/design-pattern-decorator-java/blob/main/decorator-uml.png)
 ### Problem: 
 
