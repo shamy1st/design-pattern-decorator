@@ -9,17 +9,12 @@ The issue with this implementation that now you want to create another class **C
 
     public class Main {
         public static void main(String[] args) {
-            Stream stream = new EncryptedCloudStream();
-            stream.write("some data");
+            CloudStream cloudstream = new EncryptedCloudStream();
+            cloudstream.write("some data");
         }
     }
 
-    public interface Stream {
-        void write(String data);
-    }
-
-    public class CloudStream implements Stream {
-        @Override
+    public class CloudStream {
         public void write(String data) {
             System.out.println("Storing " + data);
         }
