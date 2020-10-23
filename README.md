@@ -1,6 +1,6 @@
-# Decorator Design Pattern (Java Implementation)
+# Decorator Design Pattern (Java)
 
-**Decorator** add additional behavior to an object.
+**Decorator** add additional behaviour to an object.
 ![](https://github.com/shamy1st/design-pattern-decorator-java/blob/main/decorator-uml.png)
 ### Problem: 
 You have **CLoudStream** class that store data to a cloud service and **EncryptedCloudStream** class that encrypt data before storing it and **CompressedCloudStream** class that compress data before storing it, now you want to (1. encrypt, 2. compress, 3. store).
